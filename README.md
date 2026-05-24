@@ -1,76 +1,106 @@
-🩸 #Blood Bank Management System
-📌 #Overview
+# 🩸 Blood Bank Management System
 
-This project is a Blood Bank Management System built using SQL Server.
-It is designed to manage blood donations, blood units, delivery operations, hospitals, and blood requests efficiently.
+## 📌 Overview
+This project is a **Blood Bank Management System** implemented using **SQL Server (T-SQL)**.  
+It simulates real-world hospital blood management including storage, requests, delivery, and tracking blood units.
 
-The system ensures proper tracking of:
+---
 
-Blood storage and expiry
-Delivery status
-Hospital requests
-Blood types compatibility
-Inventory management
-🏗️ #Database Structure
+## 🏗️ Database Description
 
-The system consists of the following tables:
+### 1. Delivery Table
+Manages transportation of blood units.
 
-1. Delivery
+**Status Types:**
+- Scheduled
+- In Transit
+- Completed
+- Cancelled
 
-Tracks blood transportation status.
+---
 
-Scheduled
-In Transit
-Completed
-Cancelled
-2. BloodUnit
+### 2. BloodUnit Table
+Stores blood unit information:
+- Collection Date
+- Expiry Date
+- Status (available / used / expired)
+- Linked to Delivery
 
-Stores details of collected blood units including:
+---
 
-Collection date
-Expiry date
-Status (available / used / expired)
-3. BloodType
+### 3. BloodType Table
+Defines blood classification:
+- Blood Groups: A, B, AB, O  
+- RH Factor: + / -
 
-Defines blood groups and RH factor:
+---
 
-A, B, AB, O
-/ -
-4. Van
+### 4. Van Table
+Represents transportation vehicles:
+- Plate Number
+- Capacity
+- Location
+- Status
 
-Represents transport vehicles used in deliveries.
+---
 
-5. BloodRequest
+### 5. BloodRequest Table
+Handles hospital requests:
+- Quantity
+- Priority: Normal / Urgent / Emergency
+- Status: Pending / Approved / Rejected
 
-Handles hospital requests for blood units based on:
+---
 
-Priority (Normal, Urgent, Emergency)
-Quantity
-Status (Pending, Approved, Rejected)
-6. Hospital
+### 6. Hospital Table
+Stores hospital details:
+- Name
+- Location
+- Phone
+- Linked Requests
 
-Stores hospital information and links to requests.
+---
 
-🔗 #Relationships
-Delivery → BloodUnit (1-to-Many)
-Delivery → Van (1-to-Many)
-BloodType → BloodRequest (1-to-Many)
-BloodRequest → Hospital (1-to-1 / optional)
-BloodRequest → Delivery (linked delivery system)
-⚙️ #Features
-Create and manage blood inventory
-Track blood unit expiry and usage
-Handle hospital blood requests
-Manage delivery system for transportation
-Advanced SQL queries (JOINs, GROUP BY, CASE, Subqueries)
-Data integrity using constraints and foreign keys
-📊 #Sample Queries Included
-Total used blood units
-Requests grouped by priority
-Delivery status analysis
-High-demand blood requests
-Blood type request statistics
-Advanced JOIN operations across tables
-🧠 Technologies Used
-SQL Server
-T-SQL (Transact-SQL)
+## 🔗 Relationships
+- Delivery → BloodUnit (1:M)
+- Delivery → Van (1:M)
+- BloodType → BloodRequest (1:M)
+- BloodRequest → Hospital
+- Delivery → BloodRequest
+
+---
+
+## ⚙️ Features
+- Blood inventory tracking
+- Expiry date management
+- Hospital request system
+- Delivery tracking system
+- Advanced SQL queries:
+  - JOIN operations
+  - GROUP BY & HAVING
+  - Subqueries
+  - CASE expressions
+  - Aggregate functions
+
+---
+
+## 📊 Sample Insights
+- Total used blood units
+- Requests by priority level
+- Delivery status statistics
+- High-demand blood requests
+- Blood type usage analysis
+
+---
+
+## 🧠 Technologies Used
+- SQL Server
+- T-SQL
+
+---
+
+## 🚀 How to Run
+1. Open **SQL Server Management Studio (SSMS)**
+2. Create database:
+```sql
+CREATE DATABASE bloodbank;
