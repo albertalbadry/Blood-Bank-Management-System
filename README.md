@@ -1,5 +1,5 @@
-🩸 Blood Bank Management System
-📌 Overview
+🩸 #Blood Bank Management System
+📌 #Overview
 
 This project is a Blood Bank Management System built using SQL Server.
 It is designed to manage blood donations, blood units, delivery operations, hospitals, and blood requests efficiently.
@@ -11,7 +11,7 @@ Delivery status
 Hospital requests
 Blood types compatibility
 Inventory management
-🏗️ Database Structure
+🏗️ #Database Structure
 
 The system consists of the following tables:
 
@@ -51,20 +51,20 @@ Status (Pending, Approved, Rejected)
 
 Stores hospital information and links to requests.
 
-🔗 Relationships
+🔗 #Relationships
 Delivery → BloodUnit (1-to-Many)
 Delivery → Van (1-to-Many)
 BloodType → BloodRequest (1-to-Many)
 BloodRequest → Hospital (1-to-1 / optional)
 BloodRequest → Delivery (linked delivery system)
-⚙️ Features
+⚙️ #Features
 Create and manage blood inventory
 Track blood unit expiry and usage
 Handle hospital blood requests
 Manage delivery system for transportation
 Advanced SQL queries (JOINs, GROUP BY, CASE, Subqueries)
 Data integrity using constraints and foreign keys
-📊 Sample Queries Included
+📊 #Sample Queries Included
 Total used blood units
 Requests grouped by priority
 Delivery status analysis
